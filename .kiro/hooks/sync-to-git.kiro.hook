@@ -8,7 +8,7 @@
   },
   "then": {
     "type": "runCommand",
-    "command": "git add . && git commit -m \"Auto-sync\" && git push"
+    "command": "git add . && git commit -m \"Auto-sync\" && git push origin"
   },
   "workspaceFolderName": "kiro-introduction",
   "shortName": "sync-to-git"
