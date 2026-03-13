@@ -1,0 +1,18 @@
+{
+  "name": "weather-power",
+  "displayName": "Weather Power",
+  "version": "1.0.0",
+  "description": "Get current weather information and forecasts for any location",
+  "keywords": ["weather", "forecast", "temperature", "climate", "conditions"],
+  "mcpServers": {
+    "weather-api": {
+      "command": "node",
+      "args": ["server.js"],
+      "env": {
+        "OPENWEATHER_API_KEY": "${OPENWEATHER_API_KEY}"
+      },
+      "disabled": false,
+      "autoApprove": []
+    }
+  }
+}
