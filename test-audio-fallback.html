@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Fallback Test</title>
+</head>
+<body>
+    <h1>Audio Loading Fallback Test</h1>
+    <p>Check the console for messages. The game should continue without errors even when audio files fail to load.</p>
+    <button id="testBtn">Test Audio System</button>
+    <div id="results"></div>
+
+    <script src="game.js"></script>
+    <script>
+        document.getElementById('testBtn').addEventListener('click', () => {
+            const results = document.getElementById('results');
+            results.innerHTML = '<h2>Test Results:</h2>';
+            
+            // Test 1: Load valid and invalid audio files
+            console.log('=== Test 1: Loading audio with invalid paths ===');
+            const audioSystem = new AudioSystem();
+            
+            // Mix of valid and invalid paths
+            audioSystem.preload({
+                validSound: 'assets/jump.wav',
+                invalidSound: 'nonexistent/file.wav',
+                anotherInvalid: 'missing.wav'
+            });
+            
+            results.innerHTML += '<p>✓ AudioSystem created and preload called with mixed valid/invalid paths</p>';
+            
+            // Wait a bit for error events to fire
+            setTimeout(() => {
+                console.log('=== Test 2: Attempting to play sounds ===');
+                
+                // Try to play valid sound (may fail due to autoplay policy, but shouldn't crash)
+                audioSystem.play('validSound');
+                results.innerHTML += '<p>✓ Attempted to play valid sound (check console for autoplay policy message)</p>';
+                
+                // Try to play invalid sounds (should log warnings but not crash)
+                audioSystem.play('invalidSound');
+                results.innerHTML += '<p>✓ Attempted to play invalid sound - should show warning in console</p>';
+                
+                audioSystem.play('anotherInvalid');
+                results.innerHTML += '<p>✓ Attempted to play another invalid sound - should show warning in console</p>';
+                
+                // Try to play non-existent sound
+                audioSystem.play('neverLoaded');
+                results.innerHTML += '<p>✓ Attempted to play non-existent sound - should show warning in console</p>';
+                
+                results.innerHTML += '<h3>All tests completed! Check console for detailed logs.</h3>';
+                results.innerHTML += '<p><strong>Expected behavior:</strong></p>';
+                results.innerHTML += '<ul>';
+                results.innerHTML += '<li>Warnings for failed audio file loads</li>';
+                results.innerHTML += '<li>Warnings when trying to play failed/missing sounds</li>';
+                results.innerHTML += '<li>No crashes or uncaught errors</li>';
+                results.innerHTML += '<li>Game continues to function normally</li>';
+                results.innerHTML += '</ul>';
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
