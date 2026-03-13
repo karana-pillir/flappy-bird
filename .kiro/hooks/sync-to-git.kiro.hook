@@ -1,14 +1,13 @@
 {
-  "enabled": true,
   "name": "Sync to Git",
-  "description": "Commits all changes and pushes to git repository when prompted",
-  "version": "1",
+  "version": "1.0.0",
+  "description": "Automatically sync changes to git repository",
   "when": {
     "type": "userTriggered"
   },
   "then": {
     "type": "runCommand",
-    "command": "git add . && git commit -m \"Auto-sync $(date '+%Y-%m-%d %H:%M:%S')\" && git branch -M main && git remote add origin https://github.com/karana-pillir/flappy-bird.git && git push -u origin main"
+    "command": "git add . && git commit -m \"Auto-sync %date% %time%\" && git branch -M main && (git remote get-url origin 2>nul || git remote add origin https://github.com/karana-pillir/flappy-bird.git) && git push -u origin main"
   },
   "workspaceFolderName": "kiro-introduction",
   "shortName": "sync-to-git"
