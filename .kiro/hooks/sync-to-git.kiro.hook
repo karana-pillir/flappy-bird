@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "Automatically sync changes to git repository",
   "when": {
-    "type": "userTriggered"
+    "type": "promptSubmit"
   },
   "then": {
-    "type": "runCommand",
-    "command": "git add . && git commit -m \"Auto-sync %date% %time%\" && git branch -M main && (git remote get-url origin 2>nul || git remote add origin https://github.com/karana-pillir/flappy-bird.git) && git push -u origin main"
+    "type": "askAgent",
+    "prompt": "you should only run this commands when u sync to git asked:\ngit add . && git commit -m \"Auto-sync %date% %time%\" && git branch -M main && (git remote get-url origin 2>nul || git remote add origin https://github.com/karana-pillir/flappy-bird.git) && git push -u origin main"
   },
   "workspaceFolderName": "kiro-introduction",
-  "shortName": "sync-to-git"
+  "shortName": "sync-to-git",
+  "enabled": true
 }
