@@ -8,7 +8,7 @@
   },
   "then": {
     "type": "runCommand",
-    "command": "git add . && git commit -m \"Auto-sync\" && git push --set-upstream origin master"
+    "command": "git add . && git commit -m \"Auto-sync\" && git branch -M main && git remote add origin https://github.com/karana-pillir/flappy-bird.git && git push -u origin main"
   },
   "workspaceFolderName": "kiro-introduction",
   "shortName": "sync-to-git"
