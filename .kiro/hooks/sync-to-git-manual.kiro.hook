@@ -8,7 +8,7 @@
   },
   "then": {
     "type": "runCommand",
-    "command": "git add . && git commit -m \"Auto-sync %date% %time%\" && git branch -M main && (git remote get-url origin 2>nul || git remote add origin https://github.com/karana-pillir/flappy-bird.git) && git push -u origin main"
+    "command": "git add . && git commit -m \"Manual-sync %date% %time%\" && git branch -M main && (git remote get-url origin 2>nul || git remote add origin https://github.com/karana-pillir/flappy-bird.git) && git push -u origin main"
   },
   "workspaceFolderName": "kiro-introduction",
   "shortName": "sync-to-git-manual"
