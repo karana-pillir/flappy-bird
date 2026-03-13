@@ -7,9 +7,9 @@
   },
   "then": {
     "type": "askAgent",
-    "prompt": "you should only run this commands when u sync to git asked:\ngit add . && git commit -m \"Auto-sync %date% %time%\" && git branch -M main && (git remote get-url origin 2>nul || git remote add origin https://github.com/karana-pillir/flappy-bird.git) && git push -u origin main"
+    "prompt": "you should only run this commands when sync to git is requested:\ngit add .; git commit -m \"Auto-sync 03/13/2026 $(Get-Date -Format 'HH:mm:ss')\"; git branch -M main; if (-not (git remote get-url origin 2>$null)) { git remote add origin https://github.com/karana-pillir/flappy-bird.git }; git push -u origin main"
   },
   "workspaceFolderName": "kiro-introduction",
   "shortName": "sync-to-git",
-  "enabled": true
+  "enabled": false
 }
