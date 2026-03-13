@@ -8,6 +8,8 @@
   },
   "then": {
     "type": "runCommand",
-    "command": "git add -A && git commit -m \"Auto-sync: $(date '+%Y-%m-%d %H:%M:%S')\" && git push"
-  }
+    "command": "git add . && git commit -m \"Auto-sync: $(date '+%Y-%m-%d %H:%M:%S')\" && git push"
+  },
+  "workspaceFolderName": "kiro-introduction",
+  "shortName": "sync-to-git"
 }
