@@ -4,11 +4,11 @@
   "description": "Commits all changes and pushes to git repository when prompted",
   "version": "1",
   "when": {
-    "type": "promptSubmit"
+    "type": "userTriggered"
   },
   "then": {
     "type": "runCommand",
-    "command": "git add . && git commit -m \"Auto-sync: $(date '+%Y-%m-%d %H:%M:%S')\" && git push"
+    "command": "git add . && git commit -m \"Auto-sync\" && git push"
   },
   "workspaceFolderName": "kiro-introduction",
   "shortName": "sync-to-git"
